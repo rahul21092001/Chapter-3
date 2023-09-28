@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Counter from "./Components/Counter";
+import DarkTheme from "./Components/DarkTheme";
+import FocusBox from "./Components/FocusBox";
+import RandomUser from "./Components/RandomUser";
+import SquaredSum from "./Components/SquaredSum";
+import useLocalStorage from "./Components/useLocalStorage";
 function App() {
+  const [count, setCount] = useLocalStorage("count", 0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DarkTheme />
+      <RandomUser />
+      <Counter />
+      <FocusBox />
+      <SquaredSum />
+      <div style={{ display: "grid", placeItems: "center" }}>
+        <h2>useLocalStorage</h2>
+        <h4>Count - {count}</h4>
+        <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+          Increment
+        </button>
+      </div>
     </div>
   );
 }
