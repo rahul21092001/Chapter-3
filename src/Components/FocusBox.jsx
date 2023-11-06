@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 
 const FocusBox = () => {
+  
   const inputRef = useRef(null);
   useEffect(() => {
     inputRef.current.focus();
